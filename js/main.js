@@ -54,10 +54,24 @@ function getName(){
   }
 }
 
+function randomCards() {
+  clearChildrenFunction();
+  document.getElementById("loader").style.display = "block";
+  writeNameToDocument(`randomcard.php`);
+}
+
 function writeToDocument(type) {
 
   getData(type, function (data) {
     console.dir(data);
+
+    if (data.cards.length === 0){
+      noResults();
+    }
+  else{
+    
+
+  }
   
   });
 }
