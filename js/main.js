@@ -1,77 +1,31 @@
-const baseURL = "https://db.ygoprodeck.com/api/v5/";
+queue()
+    .defer(d3.csv, "data/airport_Stats.csv")
+    .await(makeGraphs);
 
-function getData(type, cb) {
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", baseURL + type);
-  xhr.send();
+function makeGraphs(error, flightData){
+    var ndx = crossfilter(flightData);
 
-  xhr.addEventListener("readystatechange", function () {
-    if (this.readyState === 4) {
-      cb(JSON.parse(this.responseText));
-    }
-  });
+
+    show_airports(ndx);
+
+
+    dc.renderAll();
 }
 
+function show_airports(ndx){
+   var dim = ndx.dimmension(dc.pluck('reporting_airport'));
+    var group = dim.group();
 
-var enterPress = document.getElementById(cardName);
-enterPress.addEventListener("keyup", function (event) {
-  if (event.keyCode === 13) {
-    event.preventDefault();
-    getName();
-
-  }
-});
-
-function getName(){
-  var name = document.getElementById("cardName");
-  var type = document.getElementById("typeSelected");
-  var race = document.getElementById("race");
-  var attribute = document.getElementById("attribute");
-
-  if (type == "" && race == "" && attribute == ""){
-    writeToDocument(`cardinfo.php?name=${name}`);
-  }
-  else if (type == "" && attribute == ""){
-    writeToDocument(`cardinfo.php?name=${name}&race=${race}`);
-  }
-  else if(race == "" && attribute == ""){
-    writeToDocument(`cardinfo.php?name=${name}&type=${type}`);
-  }
-  else if(race == "" && race == ""){
-    writeToDocument(`cardinfo.php?name=${name}&attribute=${attribute}`);
-  }
-  else if (type == ""){
-    writeToDocument(`cardinfo.php?name=${name}&race=${race}&attribute=${attribute}`);
-  }
-  else if(race == ""){
-    writeToDocument(`cardinfo.php?name=${name}&type=${type}&attribute=${attribute}`);
-  }
-  else if(attribute == ""){
-    writeToDocument(`cardinfo.php?name=${name}&race=${race}&type=${type}`);
-  }
-  else{
-    writeToDocument(`cardinfo.php?name=${name}&race=${race}&attribute=${attribute}&type=${type}`);
-  }
-}
-
-function randomCards() {
-  clearChildrenFunction();
-  document.getElementById("loader").style.display = "block";
-  writeNameToDocument(`randomcard.php`);
-}
-
-function writeToDocument(type) {
-
-  getData(type, function (data) {
-    console.dir(data);
-
-    if (data.cards.length === 0){
-      noResults();
-    }
-  else{
-    
-
-  }
-  
-  });
+    dc.barChart("#origin-airport")
+        .width(350)
+        .height(250)
+        .margins({top: 10, right: 50, bottom: 30, left: 50})
+        .dimension(dim)
+        .group(group)
+        .transitionDuration(500)
+        .x(d3.scale.ordinal())
+        .xUnits(dc.unit.ordinal)
+        .elasticY(true)
+        .xAxisLabel("Airport")
+        .yAxis().ticks(20);
 }

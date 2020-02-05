@@ -6,94 +6,24 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+
+        
+        <link rel="stylesheet" href="css/style.css" type ="text/css">
+        <link rel="stylesheet" href="css/dc.min.css" type="text/css" />
+         <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css" />
+         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+         
+         
+    <script type="text/javascript" src="js/d3.min.js"></script>
+    <script type="text/javascript" src="js/crossfilter.min.js"></script>
+    <script type="text/javascript" src="js/dc.min.js"></script>
+    <script type="text/javascript" src="js/queue.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
         
     </head>
     <body>
-        <nav class = "navbar navbar=dark">
-            <a href = "index.html" class = "navbar-brand">Yu-Gi-Oh Cards</a>
-        </nav>
-        <div class = "row">
-            <input id = "cardName"/>
-            <button class = "btn btn-light">Search</button>
-            <button class = "btn btn-light">Random Card</button>
-        </div>
-        <div class = "row">
-            <div class = "filters">
-                <select class = "filter-Dropdown" id = "typeDropdown">
-                    <option vallu ="">All Card Types</option>
-                    <option value = "Effect Monster">Effect Monster</option>
-                    <option value = "Flip Effect Monster">Flip Effect Monster</option>
-                    <option value = "Flip Tuner Effect Monster">Flip Tuner Effect Monster</option>
-                    <option value = "Gemini Monster">Gemini Monster</option>
-                    <option value = "Normal Monster">Normal Monster</option>
-                    <option value = "Normal Tuner Monster">Normal Tuner Monster</option>
-                    <option value = "Pendulum Effect Monster">Pendulum Effect Monster</option>
-                    <option value = "Pendulum Flip Effect Monster">Pendulum Flip Effect Monster</option>
-                    <option value = "Pendulum Normal Monster">Pendulum Normal Monster</option>
-                    <option value = "Pendulum Tuner Effect Monster">Pendulum Tuner Effect Monster</option>
-                    <option value = "Ritual Effect Monster">Ritual Effect Monster</option>
-                    <option value = "Skill Card">Skill Card</option>
-                    <option value = "Spell Card">Spell Card</option>
-                    <option value = "Spirit Monster">Spirit Monster</option>
-                    <option value = "Toon Monster">Toon Monster</option>
-                    <option value = "Trap Card">Trap Card</option>
-                    <option value = "Tuner Monster">Tuner Monster</option>
-                    <option value = "Union Effect Monster">Union Effect Monster</option>
-                    <option value = "Union Tuner Effect Monster">Union Tuner Effect Monster</option>
-                    <option value = "Fusion Monster">Fusion Monster</option>
-                    <option value = "Link Monster">Link Monster</option>
-                    <option value = "Pendulum Effect Fusion Monster">Pendulum Effect Fusion Monster</option>
-                    <option value = "Synchro Monster">Synchro Monster</option>
-                    <option value = "Synchro Pendulum Effect Monster">Synchro Pendulum Effect Monster</option>
-                    <option value = "Synchro Tuner Monster">Synchro Tuner Monster</option>
-                    <option value = "XYZ Monster">XYZ Monster</option>
-                    <option value = "XYZ Pendulum Effect Monster">XYZ Pendulum Effect Monster</option>
-                    
-                </select>
-            </div>
-            .<div class = "filters">
-                <select class = "filter-Dropdown" id = "raceDropdown">
-                    <option value = "">All Types</option>
-                    <option value = "Aqua">Aqua</option>
-                    <option value = "Beast">Beast</option>
-                    <option value = "Beast-Warrior">Beast-Warrior</option>
-                    <option value = "Creator-God">Creator-God</option>
-                    <option value = "Cyberse">Cyberse</option>
-                    <option value = "Dinosaur">Dinosaur</option>
-                    <option value = "Divine-Beast">Divine-Beast</option>
-                    <option value = "Dragon">Dragon</option>
-                    <option value = "Fairy">Fairy</option>
-                    <option value = "Fiend">Fiend</option>
-                    <option value = "Fish">Fish</option>
-                    <option value = "Insect">Insect</option>
-                    <option value = "Spell Card">Spell Card</option>
-                    <option value = "Spirit Monster">Spirit Monster</option>
-                    <option value = "Toon Monster">Toon Monster</option>
-                    <option value = "Trap Card">Trap Card</option>
-                    <option value = "Tuner Monster">Tuner Monster</option>
-                    <option value = "Union Effect Monster">Union Effect Monster</option>
-                    <option value = "Union Tuner Effect Monster">Union Tuner Effect Monster</option>
-                    <option value = "Fusion Monster">Fusion Monster</option>
-                    <option value = "Link Monster">Link Monster</option>
-                    <option value = "Pendulum Effect Fusion Monster">Pendulum Effect Fusion Monster</option>
-                    <option value = "Synchro Monster">Synchro Monster</option>
-                    <option value = "Synchro Pendulum Effect Monster">Synchro Pendulum Effect Monster</option>
-                    <option value = "Synchro Tuner Monster">Synchro Tuner Monster</option>
-                    <option value = "XYZ Monster">XYZ Monster</option>
-                    <option value = "XYZ Pendulum Effect Monster">XYZ Pendulum Effect Monster</option>
-                    
-                </select>
-            </div>
-        </div>
-      
 
-
-
-            <div id="data"></div>
-
-
-       
+       <div class="col-xs-12 col-sm-4 text-center" id="origin-airport" class="custom-chart"></div> 
     </body>
-    <script src="js/main.js" async defer></script>
+ 
 </html>
